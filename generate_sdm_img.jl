@@ -7,7 +7,6 @@ using JLD
 using Dates
 
 
-include("DenoiseAlgorithm.jl")
 include("data_compute.jl")
 
 @info "Finishing loading"
@@ -56,13 +55,13 @@ for N in [2, 8 // 3, 4]
         end
         @info "Processing" (N, S, dx, dy)
         @info Dates.now()
-        tensor = DenoiseAlgorithm.make_sub_holo(holo, Dx, Dy, dx, dy)
+        tensor = make_sub_holo(holo, Dx, Dy, dx, dy)
         
         for k in 1: size(tensor, 3)
             tensor[:, :, k] = reconst(tensor[:, :, k], P, scale ÷ N^2; shift=true)
         end
 
-        sdm_img = DenoiseAlgorithm.SDM(tensor)
+        sdm_img = SDM(tensor)
         sdm_img, sdm_img_zoom, sdm_img_local = geometry_operate(sdm_img, holo_name)
 
         denoised_img = initialize(ReconstructedImage(sdm_img, S, dx, dy), ori_img)
