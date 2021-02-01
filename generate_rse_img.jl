@@ -14,7 +14,7 @@ include("data_compute.jl")
 # Beginning
 @info Dates.now()
 # load hologram with eltype Float64
-PATH = "/home/qling/Documents/hologram"
+PATH = joinpath(@__DIR__, "hologram")
 holo_name = "tail.bmp"
 holo = load_image(PATH, holo_name)
 Nx, Ny = size(holo)
@@ -30,7 +30,7 @@ key = holo_name[1: 4]
 # N = 2
 # N = 8 // 3
 # N = 4
-for N in [4]
+for N in [2, 8 // 3, 4]
     # if N in [2, 8 // 3]
     #     continue
     # end 

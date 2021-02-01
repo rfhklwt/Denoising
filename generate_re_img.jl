@@ -4,7 +4,7 @@ using FFTW
 using ImageView
 
 # load hologram with eltype Float64
-PATH = "/home/qling/Documents/hologram"
+PATH = joinpath(@__DIR__, "hologram")
 holo_name = "tail.bmp"
 holo = load_image(PATH, holo_name)
 Nx, Ny = size(holo)
