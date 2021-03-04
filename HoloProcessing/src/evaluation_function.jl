@@ -1,5 +1,3 @@
-using Statistics
-
 # Contrast
 contrast(img::AbstractMatrix) = std(img) / mean(img)
 
