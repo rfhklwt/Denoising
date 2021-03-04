@@ -4,8 +4,8 @@ using FFTW
 using ImageView
 
 # load hologram with eltype Float64
-PATH = "/home/qling/Documents/hologram"
-holo_name = "tail.bmp"
+PATH = joinpath(@__DIR__, "hologram")
+holo_name = "head.bmp"
 holo = load_image(PATH, holo_name)
 Nx, Ny = size(holo)
 scale = 4000000
@@ -23,3 +23,7 @@ key_dir = joinpath(@__DIR__, "Data", key)
 
 save(joinpath(key_dir, "ori $key.pdf"), re_img)
 save(joinpath(key_dir, "ori zoom $key.pdf"), zoom_img)
+
+# Detail
+## 50:250, 150:350 tail
+## 50:250, 250:450 head
