@@ -14,7 +14,7 @@ include("data_compute.jl")
 @info Dates.now()
 # load hologram with eltype Float64
 PATH = joinpath(@__DIR__, "hologram")
-holo_name = "tail.bmp"
+holo_name = "head.bmp"
 holo = load_image(PATH, holo_name)
 Nx, Ny = size(holo)
 scale = 4000000
@@ -29,19 +29,18 @@ key = holo_name[1: 4]
 # N = 2
 # N = 8 // 3
 # N = 4
-for N in [2, 8 // 3, 4]
-    # if N in [2, 8 // 3]
-    #     continue
-    # end 
+
+
+for N in [2]
     # Store de-noising image with (S, dx, dy). 
     denoised_imgs = []
     denoised_imgs_zoom = []
     denoised_imgs_local = []
 
     Dx, Dy = Nx ÷ N, Ny ÷ N
-
+    sub_P = plan_fft(similar(holo, Dx, Dy))
     # make path
-    key_dir = joinpath(@__DIR__, "Data", key, "RSE", string(Dx, "_", Dy))
+    key_dir = joinpath(@__DIR__, "Data", key, "LDR", string(Dx, "_", Dy))
 
     !isdir(key_dir) && mkpath(key_dir)
 
@@ -54,31 +53,31 @@ for N in [2, 8 // 3, 4]
         end
         @info "Processing" (N, S, dx, dy)
         @info Dates.now()
-        tensor = make_sub_holo(holo, Dx, Dy, dx, dy)
+        tensor = make_sub_holo(holo, Dx, Dy, dx, dy; dims_shrink=true)
         
-        for k in 1: size(tensor, 3)
-            tensor[:, :, k] = reconst(tensor[:, :, k], P, scale ÷ N^2; shift=true)
+        @inbounds for k in 1: size(tensor, 3)
+            tensor[:, :, k] = reconst(tensor[:, :, k], sub_P, scale ÷ N^2; shift=true)
         end
 
-        rse_img = RSE(tensor)
-        rse_img, rse_img_zoom, rse_img_local = geometry_operate(rse_img, holo_name)
+        ldr_img = LDR(tensor, N)
+        ldr_img, ldr_img_zoom, ldr_img_local = geometry_operate(ldr_img, holo_name)
 
-        denoised_img = initialize(ReconstructedImage(rse_img, S, dx, dy), ori_img)
-        denoised_img_zoom = initialize(ReconstructedImage(rse_img_zoom, S, dx, dy), ori_img_zoom)
-        denoised_img_local = initialize(ReconstructedImage(rse_img_local, S, dx, dy), ori_img_local)
+        denoised_img = initialize(ReconstructedImage(ldr_img, S, dx, dy), ori_img)
+        denoised_img_zoom = initialize(ReconstructedImage(ldr_img_zoom, S, dx, dy), ori_img_zoom)
+        denoised_img_local = initialize(ReconstructedImage(ldr_img_local, S, dx, dy), ori_img_local)
 
         @info "Pushing de-noised image"
         push!(denoised_imgs, denoised_img)
         push!(denoised_imgs_zoom, denoised_img_zoom)
         push!(denoised_imgs_local, denoised_img_local)
         
-        # save(joinpath(key_dir, string("rse ", S, " # ", dx, "_", dy, ".pdf")), rse_img)
-        # save(joinpath(key_dir, string("rse zoom ", S, " # ", dx, "_", dy, ".pdf")), zoom_rse_img)
+        # save(joinpath(key_dir, string("ldr ", S, " # ", dx, "_", dy, ".pdf")), ldr_img)
+        # save(joinpath(key_dir, string("ldr zoom ", S, " # ", dx, "_", dy, ".pdf")), zoom_ldr_img)
     end
     @info "Saving"
-    save(joinpath(key_dir, "rse_data.jld"), "data", denoised_imgs)
-    save(joinpath(key_dir, "rse_data_zoom.jld"), "data", denoised_imgs_zoom)
-    save(joinpath(key_dir, "rse_data_local.jld"), "data", denoised_imgs_local)
+    save(joinpath(key_dir, "ldr_data.jld"), "data", denoised_imgs)
+    save(joinpath(key_dir, "ldr_data_zoom.jld"), "data", denoised_imgs_zoom)
+    save(joinpath(key_dir, "ldr_data_local.jld"), "data", denoised_imgs_local)
 end
 
 @info "Total Complete"
