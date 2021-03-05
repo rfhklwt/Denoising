@@ -10,7 +10,7 @@ using ImageMagick
 include("export_data.jl")
 @info "END LOADING"
 
-key = "head"
+key = "tail"
 path = joinpath(@__DIR__, "Data", key)
 # parameter
 s = 70
@@ -25,7 +25,7 @@ smpi = Vector{Float64}()
 enl = Vector{Float64}()
 
 # Saving path
-saving_path = joinpath(@__DIR__, "export")
+saving_path = joinpath(@__DIR__, "export", key)
 !isdir(saving_path) && mkpath(saving_path)
 
 
