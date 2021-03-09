@@ -1,0 +1,208 @@
+\RequirePackage{luatex85}
+\documentclass[tikz]{standalone}
+% Default preamble
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{polar}
+\usepgfplotslibrary{smithchart}
+\usepgfplotslibrary{statistics}
+\usepgfplotslibrary{dateplot}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{backgrounds}
+\usepgfplotslibrary{patchplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{%
+layers/standard/.define layer set={%
+    background,axis background,axis grid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis foreground%
+}{grid style= {/pgfplots/on layer=axis grid},%
+    tick style= {/pgfplots/on layer=axis ticks},%
+    axis line style= {/pgfplots/on layer=axis lines},%
+    label style= {/pgfplots/on layer=axis descriptions},%
+    legend style= {/pgfplots/on layer=axis descriptions},%
+    title style= {/pgfplots/on layer=axis descriptions},%
+    colorbar style= {/pgfplots/on layer=axis descriptions},%
+    ticklabel style= {/pgfplots/on layer=axis tick labels},%
+    axis background@ style={/pgfplots/on layer=axis background},%
+    3d box foreground style={/pgfplots/on layer=axis foreground},%
+    },
+}
+
+\begin{document}
+\begin{tikzpicture}[/tikz/background rectangle/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, draw opacity={1.0}}, show background rectangle]
+\begin{axis}[title={}, title style={at={{(0.5,1)}}, font={{\fontsize{14 pt}{18.2 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.0}, line width={1}, solid, fill={rgb,1:red,0.92;green,0.92;blue,0.92}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}}, axis background/.style={fill={rgb,1:red,0.92;green,0.92;blue,0.92}, opacity={1.0}}, anchor={north west}, xshift={0.0mm}, yshift={-0.0mm}, width={76.2mm}, height={67.73333333333332mm}, legend pos={outer north east}, scaled x ticks={false}, xlabel={}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={0.010647000000000004}, xmax={2.989353}, xtick={{0.5,1.5,2.5}}, xticklabels={{$240\times320$,$360\times480$,$480\times640$}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel={ENL}, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={-0.026877930195140093}, ymax={0.9228089366998099}, ytick={{0.0,0.2,0.4,0.6000000000000001,0.8}}, yticklabels={{$0.0$,$0.2$,$0.4$,$0.6$,$0.8$}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar style={title={}, point meta max={nan}, point meta min={nan}}]
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={7926900c-784d-49a4-82c0-e1d9a082a59a}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.502;green,0.451;blue,0.6745}, fill opacity={0.75}, area legend]
+        coordinates {
+            (0.165,0.532713055547864)
+            (0.165,0.0)
+            (0.5,0.0)
+            (0.5,0.532713055547864)
+            (0.165,0.532713055547864)
+        }
+        ;
+    \addlegendentry {RSE}
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={7926900c-784d-49a4-82c0-e1d9a082a59a}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.502;green,0.451;blue,0.6745}, fill opacity={0.75}, area legend, forget plot]
+        coordinates {
+            (1.165,0.6048587905081543)
+            (1.165,0.0)
+            (1.5,0.0)
+            (1.5,0.6048587905081543)
+            (1.165,0.6048587905081543)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={7926900c-784d-49a4-82c0-e1d9a082a59a}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.502;green,0.451;blue,0.6745}, fill opacity={0.75}, area legend, forget plot]
+        coordinates {
+            (2.165,0.6862287979623464)
+            (2.165,0.0)
+            (2.5,0.0)
+            (2.5,0.6862287979623464)
+            (2.165,0.6862287979623464)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={66c2fb36-76d4-4bc6-bc82-fa1511149dfd}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.1765;green,0.0;blue,0.2941}, fill opacity={0.75}, area legend]
+        coordinates {
+            (0.5,0.6795079567139031)
+            (0.5,0.0)
+            (0.835,0.0)
+            (0.835,0.6795079567139031)
+            (0.5,0.6795079567139031)
+        }
+        ;
+    \addlegendentry {SDM}
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={66c2fb36-76d4-4bc6-bc82-fa1511149dfd}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.1765;green,0.0;blue,0.2941}, fill opacity={0.75}, area legend, forget plot]
+        coordinates {
+            (1.5,0.7881695837172524)
+            (1.5,0.0)
+            (1.835,0.0)
+            (1.835,0.7881695837172524)
+            (1.5,0.7881695837172524)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={66c2fb36-76d4-4bc6-bc82-fa1511149dfd}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.1765;green,0.0;blue,0.2941}, fill opacity={0.75}, area legend, forget plot]
+        coordinates {
+            (2.5,0.8959310065046698)
+            (2.5,0.0)
+            (2.835,0.0)
+            (2.835,0.8959310065046698)
+            (2.5,0.8959310065046698)
+        }
+        ;
+\end{axis}
+\begin{axis}[title={}, title style={at={{(0.5,1)}}, font={{\fontsize{14 pt}{18.2 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.0}, line width={1}, solid, fill={rgb,1:red,0.92;green,0.92;blue,0.92}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}}, axis background/.style={fill={rgb,1:red,0.92;green,0.92;blue,0.92}, opacity={1.0}}, anchor={north west}, xshift={0.0mm}, yshift={-67.73333333333332mm}, width={76.2mm}, height={67.73333333333332mm}, legend pos={outer north east}, scaled x ticks={false}, xlabel={}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={0.010647000000000004}, xmax={2.989353}, xtick={{0.5,1.5,2.5}}, xticklabels={{$240\times320$,$360\times480$,$480\times640$}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel={SSI}, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={-0.02346634409222897}, ymax={0.8056778138331947}, ytick={{0.0,0.2,0.4,0.6000000000000001,0.8}}, yticklabels={{$0.0$,$0.2$,$0.4$,$0.6$,$0.8$}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar style={title={}, point meta max={nan}, point meta min={nan}}]
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={5aaf5eb0-0d0b-4afd-87e7-f5fda599cdca}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.502;green,0.451;blue,0.6745}, fill opacity={0.75}, area legend]
+        coordinates {
+            (0.165,0.7822114697409658)
+            (0.165,0.0)
+            (0.5,0.0)
+            (0.5,0.7822114697409658)
+            (0.165,0.7822114697409658)
+        }
+        ;
+    \addlegendentry {RSE}
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={5aaf5eb0-0d0b-4afd-87e7-f5fda599cdca}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.502;green,0.451;blue,0.6745}, fill opacity={0.75}, area legend, forget plot]
+        coordinates {
+            (1.165,0.7340807772115112)
+            (1.165,0.0)
+            (1.5,0.0)
+            (1.5,0.7340807772115112)
+            (1.165,0.7340807772115112)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={5aaf5eb0-0d0b-4afd-87e7-f5fda599cdca}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.502;green,0.451;blue,0.6745}, fill opacity={0.75}, area legend, forget plot]
+        coordinates {
+            (2.165,0.6891858946424532)
+            (2.165,0.0)
+            (2.5,0.0)
+            (2.5,0.6891858946424532)
+            (2.165,0.6891858946424532)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={e264f7ff-bbef-4e96-9a4e-bd639aece97e}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.1765;green,0.0;blue,0.2941}, fill opacity={0.75}, area legend]
+        coordinates {
+            (0.5,0.6925857900931988)
+            (0.5,0.0)
+            (0.835,0.0)
+            (0.835,0.6925857900931988)
+            (0.5,0.6925857900931988)
+        }
+        ;
+    \addlegendentry {SDM}
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={e264f7ff-bbef-4e96-9a4e-bd639aece97e}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.1765;green,0.0;blue,0.2941}, fill opacity={0.75}, area legend, forget plot]
+        coordinates {
+            (1.5,0.6430740940206232)
+            (1.5,0.0)
+            (1.835,0.0)
+            (1.835,0.6430740940206232)
+            (1.5,0.6430740940206232)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={e264f7ff-bbef-4e96-9a4e-bd639aece97e}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.1765;green,0.0;blue,0.2941}, fill opacity={0.75}, area legend, forget plot]
+        coordinates {
+            (2.5,0.6031614360789822)
+            (2.5,0.0)
+            (2.835,0.0)
+            (2.835,0.6031614360789822)
+            (2.5,0.6031614360789822)
+        }
+        ;
+\end{axis}
+\begin{axis}[title={}, title style={at={{(0.5,1)}}, font={{\fontsize{14 pt}{18.2 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.0}, line width={1}, solid, fill={rgb,1:red,0.92;green,0.92;blue,0.92}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}}, axis background/.style={fill={rgb,1:red,0.92;green,0.92;blue,0.92}, opacity={1.0}}, anchor={north west}, xshift={0.0mm}, yshift={-135.46666666666664mm}, width={76.2mm}, height={67.73333333333332mm}, legend pos={outer north east}, scaled x ticks={false}, xlabel={}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={0.010647000000000004}, xmax={2.989353}, xtick={{0.5,1.5,2.5}}, xticklabels={{$240\times320$,$360\times480$,$480\times640$}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel={SMPI}, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={-0.02351186119487455}, ymax={0.807240567690693}, ytick={{0.0,0.2,0.4,0.6000000000000001,0.8}}, yticklabels={{$0.0$,$0.2$,$0.4$,$0.6$,$0.8$}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar style={title={}, point meta max={nan}, point meta min={nan}}]
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={f50da15e-bfd8-45a4-8076-c92cd6a21817}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.502;green,0.451;blue,0.6745}, fill opacity={0.75}, area legend]
+        coordinates {
+            (0.165,0.7837287064958184)
+            (0.165,0.0)
+            (0.5,0.0)
+            (0.5,0.7837287064958184)
+            (0.165,0.7837287064958184)
+        }
+        ;
+    \addlegendentry {RSE}
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={f50da15e-bfd8-45a4-8076-c92cd6a21817}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.502;green,0.451;blue,0.6745}, fill opacity={0.75}, area legend, forget plot]
+        coordinates {
+            (1.165,0.7408677560071432)
+            (1.165,0.0)
+            (1.5,0.0)
+            (1.5,0.7408677560071432)
+            (1.165,0.7408677560071432)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={f50da15e-bfd8-45a4-8076-c92cd6a21817}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.502;green,0.451;blue,0.6745}, fill opacity={0.75}, area legend, forget plot]
+        coordinates {
+            (2.165,0.7075230344168632)
+            (2.165,0.0)
+            (2.5,0.0)
+            (2.5,0.7075230344168632)
+            (2.165,0.7075230344168632)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={570b0f52-669f-4d7c-8af3-9019280718cf}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.1765;green,0.0;blue,0.2941}, fill opacity={0.75}, area legend]
+        coordinates {
+            (0.5,0.6232991765348576)
+            (0.5,0.0)
+            (0.835,0.0)
+            (0.835,0.6232991765348576)
+            (0.5,0.6232991765348576)
+        }
+        ;
+    \addlegendentry {SDM}
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={570b0f52-669f-4d7c-8af3-9019280718cf}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.1765;green,0.0;blue,0.2941}, fill opacity={0.75}, area legend, forget plot]
+        coordinates {
+            (1.5,0.5787945760067691)
+            (1.5,0.0)
+            (1.835,0.0)
+            (1.835,0.5787945760067691)
+            (1.5,0.5787945760067691)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={570b0f52-669f-4d7c-8af3-9019280718cf}, draw opacity={1.0}, line width={0}, solid, fill={rgb,1:red,0.1765;green,0.0;blue,0.2941}, fill opacity={0.75}, area legend, forget plot]
+        coordinates {
+            (2.5,0.552753143897465)
+            (2.5,0.0)
+            (2.835,0.0)
+            (2.835,0.552753143897465)
+            (2.5,0.552753143897465)
+        }
+        ;
+\end{axis}
+\end{tikzpicture}
+\end{document}
