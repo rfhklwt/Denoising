@@ -10,7 +10,7 @@ module HoloProcessing
     export ReconstructedImage
     export initialize, brightness, color, normalize, reconst, load_image, geometry_operate
     export contrast, SSI, SMPI, ENL
-    export make_sub_holo, SDM, RSE, LDR
+    export make_sub_holo, SDM, RSE, RSE_parallel, LDR
 
     abstract type AbstractImage end
 
@@ -61,7 +61,7 @@ module HoloProcessing
         if shift
             fft_img = fftshift(P * fftshift(hologram))
         else
-            fft_img = P * brightness(hologram)
+            fft_img = P * hologram
         end
         raw_img = real.(fft_img .* conj(fft_img))
         clamp!(scalefactor * normalize(raw_img), 0, 1)

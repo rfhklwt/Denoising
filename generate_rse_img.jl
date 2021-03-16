@@ -55,12 +55,13 @@ for N in [2, 8 // 3, 4]
         @info "Processing" (N, S, dx, dy)
         @info Dates.now()
         tensor = make_sub_holo(holo, Dx, Dy, dx, dy)
-        
-        for k in 1: size(tensor, 3)
+
+        @inbounds Threads.@threads for ind in CartesianIndices(1: size(tensor, 3))
+            k = ind.I[1]
             tensor[:, :, k] = reconst(tensor[:, :, k], P, scale ÷ N^2; shift=true)
         end
-
-        rse_img = RSE(tensor)
+        
+        rse_img = RSE_parallel(tensor)
         rse_img, rse_img_zoom, rse_img_local = geometry_operate(rse_img, holo_name)
 
         denoised_img = initialize(ReconstructedImage(rse_img, S, dx, dy), ori_img)

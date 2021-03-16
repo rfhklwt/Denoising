@@ -1,0 +1,171 @@
+\RequirePackage{luatex85}
+\documentclass[tikz]{standalone}
+% Default preamble
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{polar}
+\usepgfplotslibrary{smithchart}
+\usepgfplotslibrary{statistics}
+\usepgfplotslibrary{dateplot}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{backgrounds}
+\usepgfplotslibrary{patchplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{%
+layers/standard/.define layer set={%
+    background,axis background,axis grid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis foreground%
+}{grid style= {/pgfplots/on layer=axis grid},%
+    tick style= {/pgfplots/on layer=axis ticks},%
+    axis line style= {/pgfplots/on layer=axis lines},%
+    label style= {/pgfplots/on layer=axis descriptions},%
+    legend style= {/pgfplots/on layer=axis descriptions},%
+    title style= {/pgfplots/on layer=axis descriptions},%
+    colorbar style= {/pgfplots/on layer=axis descriptions},%
+    ticklabel style= {/pgfplots/on layer=axis tick labels},%
+    axis background@ style={/pgfplots/on layer=axis background},%
+    3d box foreground style={/pgfplots/on layer=axis foreground},%
+    },
+}
+
+\begin{document}
+\begin{tikzpicture}[/tikz/background rectangle/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, draw opacity={1.0}}, show background rectangle]
+\begin{axis}[point meta max={nan}, point meta min={nan}, legend cell align={left}, title={}, title style={at={{(0.5,1)}}, anchor={south}, font={{\fontsize{14 pt}{18.2 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, legend style={color={rgb,1:red,1.0;green,1.0;blue,1.0}, draw opacity={1.0}, line width={1}, solid, fill={rgb,1:red,0.92;green,0.92;blue,0.92}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, text={rgb,1:red,0.0;green,0.0;blue,0.0}, at={(1.02, 1)}, anchor={north west}}, axis background/.style={fill={rgb,1:red,0.92;green,0.92;blue,0.92}, opacity={1.0}}, anchor={north west}, xshift={1.0mm}, yshift={-1.0mm}, width={145.4mm}, height={99.6mm}, scaled x ticks={false}, xlabel={}, x tick style={color={rgb,1:red,0.2;green,0.2;blue,0.2}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.2;green,0.2;blue,0.2}, opacity={1.0}, rotate={0}}, xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={-0.04760200000000003}, xmax={4.047602}, xtick={{0.5,1.5,2.5,3.5}}, xticklabels={{$ENL$,$SMPI$,$SSI$,$Time$}}, xtick align={outside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.3;green,0.3;blue,0.3}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,1.0;green,1.0;blue,1.0}, draw opacity={1.0}, line width={1}, solid}, extra x ticks={{0.0,1.0,2.0,3.0,4.0}}, extra x tick labels={}, extra x tick style={grid={major}, x grid style={color={rgb,1:red,1.0;green,1.0;blue,1.0}, draw opacity={1.0}, line width={0.5}, solid}, major tick length={0.1cm}}, axis x line*={left}, x axis line style={color={rgb,1:red,1.0;green,1.0;blue,1.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel={Performances}, y tick style={color={rgb,1:red,0.2;green,0.2;blue,0.2}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.2;green,0.2;blue,0.2}, opacity={1.0}, rotate={0}}, ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={-0.056339999999999994}, ymax={1.93434}, ytick={{0.0,0.5,1.0,1.5}}, yticklabels={{$0.0$,$0.5$,$1.0$,$1.5$}}, ytick align={outside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.3;green,0.3;blue,0.3}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,1.0;green,1.0;blue,1.0}, draw opacity={1.0}, line width={1}, solid}, extra y ticks={{0.25,0.75,1.25,1.75}}, extra y tick labels={}, extra y tick style={grid={major}, y grid style={color={rgb,1:red,1.0;green,1.0;blue,1.0}, draw opacity={1.0}, line width={0.5}, solid}, major tick length={0.1cm}}, axis y line*={left}, y axis line style={color={rgb,1:red,1.0;green,1.0;blue,1.0}, draw opacity={1.0}, line width={1}, solid}]
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={5a8061e5-1d07-4f96-8b51-caddfca682f7}, area legend, fill={rgb,1:red,0.0;green,0.6056;blue,0.9787}, fill opacity={0.75}, draw opacity={1.0}, line width={0}, solid]
+        table[row sep={\\}]
+        {
+            \\
+            0.16499999999999998  0.6896459187455989  \\
+            0.16499999999999998  0.0  \\
+            0.38833333333333336  0.0  \\
+            0.38833333333333336  0.6896459187455989  \\
+            0.16499999999999998  0.6896459187455989  \\
+        }
+        ;
+    \addlegendentry {LDR}
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={5a8061e5-1d07-4f96-8b51-caddfca682f7}, area legend, fill={rgb,1:red,0.0;green,0.6056;blue,0.9787}, fill opacity={0.75}, draw opacity={1.0}, line width={0}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            1.165  0.780942822533655  \\
+            1.165  0.0  \\
+            1.3883333333333332  0.0  \\
+            1.3883333333333332  0.780942822533655  \\
+            1.165  0.780942822533655  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={5a8061e5-1d07-4f96-8b51-caddfca682f7}, area legend, fill={rgb,1:red,0.0;green,0.6056;blue,0.9787}, fill opacity={0.75}, draw opacity={1.0}, line width={0}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            2.165  0.7761891462369882  \\
+            2.165  0.0  \\
+            2.3883333333333336  0.0  \\
+            2.3883333333333336  0.7761891462369882  \\
+            2.165  0.7761891462369882  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={5a8061e5-1d07-4f96-8b51-caddfca682f7}, area legend, fill={rgb,1:red,0.0;green,0.6056;blue,0.9787}, fill opacity={0.75}, draw opacity={1.0}, line width={0}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            3.165  0.477  \\
+            3.165  0.0  \\
+            3.3883333333333336  0.0  \\
+            3.3883333333333336  0.477  \\
+            3.165  0.477  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={80aa1d1f-301d-49e3-a953-350bf0c483bf}, area legend, fill={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, fill opacity={0.75}, draw opacity={1.0}, line width={0}, solid]
+        table[row sep={\\}]
+        {
+            \\
+            0.3883333333333333  0.7960925453245186  \\
+            0.3883333333333333  0.0  \\
+            0.6116666666666667  0.0  \\
+            0.6116666666666667  0.7960925453245186  \\
+            0.3883333333333333  0.7960925453245186  \\
+        }
+        ;
+    \addlegendentry {RSE}
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={80aa1d1f-301d-49e3-a953-350bf0c483bf}, area legend, fill={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, fill opacity={0.75}, draw opacity={1.0}, line width={0}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            1.3883333333333334  0.6223885893019083  \\
+            1.3883333333333334  0.0  \\
+            1.6116666666666666  0.0  \\
+            1.6116666666666666  0.6223885893019083  \\
+            1.3883333333333334  0.6223885893019083  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={80aa1d1f-301d-49e3-a953-350bf0c483bf}, area legend, fill={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, fill opacity={0.75}, draw opacity={1.0}, line width={0}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            2.388333333333333  0.7224351563229309  \\
+            2.388333333333333  0.0  \\
+            2.611666666666667  0.0  \\
+            2.611666666666667  0.7224351563229309  \\
+            2.388333333333333  0.7224351563229309  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={80aa1d1f-301d-49e3-a953-350bf0c483bf}, area legend, fill={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, fill opacity={0.75}, draw opacity={1.0}, line width={0}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            3.388333333333333  1.878  \\
+            3.388333333333333  0.0  \\
+            3.611666666666667  0.0  \\
+            3.611666666666667  1.878  \\
+            3.388333333333333  1.878  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={1c9e1212-dae2-4799-8478-9f7dc4c2c641}, area legend, fill={rgb,1:red,0.2422;green,0.6433;blue,0.3044}, fill opacity={0.75}, draw opacity={1.0}, line width={0}, solid]
+        table[row sep={\\}]
+        {
+            \\
+            0.6116666666666667  0.632348468786184  \\
+            0.6116666666666667  0.0  \\
+            0.8350000000000001  0.0  \\
+            0.8350000000000001  0.632348468786184  \\
+            0.6116666666666667  0.632348468786184  \\
+        }
+        ;
+    \addlegendentry {SDM}
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={1c9e1212-dae2-4799-8478-9f7dc4c2c641}, area legend, fill={rgb,1:red,0.2422;green,0.6433;blue,0.3044}, fill opacity={0.75}, draw opacity={1.0}, line width={0}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            1.6116666666666668  0.8355919936365371  \\
+            1.6116666666666668  0.0  \\
+            1.835  0.0  \\
+            1.835  0.8355919936365371  \\
+            1.6116666666666668  0.8355919936365371  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={1c9e1212-dae2-4799-8478-9f7dc4c2c641}, area legend, fill={rgb,1:red,0.2422;green,0.6433;blue,0.3044}, fill opacity={0.75}, draw opacity={1.0}, line width={0}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            2.611666666666667  0.810592190174469  \\
+            2.611666666666667  0.0  \\
+            2.8350000000000004  0.0  \\
+            2.8350000000000004  0.810592190174469  \\
+            2.611666666666667  0.810592190174469  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.0;blue,0.0}, name path={1c9e1212-dae2-4799-8478-9f7dc4c2c641}, area legend, fill={rgb,1:red,0.2422;green,0.6433;blue,0.3044}, fill opacity={0.75}, draw opacity={1.0}, line width={0}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            3.611666666666667  1.291  \\
+            3.611666666666667  0.0  \\
+            3.8350000000000004  0.0  \\
+            3.8350000000000004  1.291  \\
+            3.611666666666667  1.291  \\
+        }
+        ;
+\end{axis}
+\end{tikzpicture}
+\end{document}

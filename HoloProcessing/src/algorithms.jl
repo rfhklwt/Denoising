@@ -30,12 +30,43 @@ end
 SDM(img_tensor::AbstractArray) = mean(img_tensor, dims=3)
 
 # redundant speckle elimination (RSE) method, see in https://www.osapublishing.org/ao/abstract.cfm?uri=ao-59-16-5066
-function RSE(img_tensor::AbstractArray)
+function RSE(img_tensor::AbstractArray{T, 3}) where T
     dims_1, dims_2, dims_3 = size(img_tensor)
-    mean_img = similar(img_tensor, dims_1, dims_2)
+    mean_img = zeros(dims_1, dims_2)
 
     @inbounds for i in 1: dims_1, j in 1: dims_2
-        mean_img[i, j] = unique(@view img_tensor[i, j, :]) |> mean
+        hash_tab = Set{T}()
+        clock = 0
+        @inbounds for k in 1: dims_3
+            if img_tensor[i, j, k] ∉ hash_tab
+                push!(hash_tab, img_tensor[i, j, k])
+                mean_img[i, j] += img_tensor[i, j, k]
+            clock += 1
+            end
+        end
+        mean_img[i, j] /= clock
+    end
+
+    return mean_img
+end
+
+# much faster version
+function RSE_parallel(img_tensor::AbstractArray{T, 3}) where T
+    dims_1, dims_2, dims_3 = size(img_tensor)
+    mean_img = zeros(dims_1, dims_2)
+
+    @inbounds Threads.@threads for ind in CartesianIndices((1: dims_1, 1: dims_2))
+        i, j = ind.I
+        hash_tab = Set{T}()
+        clock = 0
+        @inbounds for k in 1: dims_3
+            if img_tensor[i, j, k] ∉ hash_tab
+                push!(hash_tab, img_tensor[i, j, k])
+                mean_img[i, j] += img_tensor[i, j, k]
+            clock += 1
+            end
+        end
+        mean_img[i, j] /= clock
     end
 
     return mean_img
@@ -63,7 +94,8 @@ function LDR_denosing(img_tensor::AbstractArray, N::Integer)
 
     δ = dims_3 ÷ N^2
 
-    @inbounds for k in 1: N^2
+    @inbounds Threads.@threads for ind in CartesianIndices(1: N^2)
+        k = ind.I[1]
         mean_tensor[:, :, k] = mean(img_tensor[:, :, 1 + (k - 1) * δ: k * δ], dims=3)
     end
 
@@ -74,7 +106,9 @@ function LDR_aggregation(img_tensor::AbstractArray, N::Integer)
     dims_1, dims_2, _ = size(img_tensor)
     denoised_img = similar(img_tensor, dims_1 * N, dims_2 * N)
 
-    @inbounds for i in 1: N, j in 1: N
+    @inbounds Threads.@threads for ind in CartesianIndices((1: N, 1: N))
+    #@inbounds for i in 1: N, j in 1: N
+        i, j = ind.I
         denoised_img[i: N: end, j: N: end] .= @view img_tensor[:, :, i + j - 1]
     end
 
