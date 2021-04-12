@@ -2,7 +2,7 @@ using HoloProcessing
 using CSVFiles
 
 include("data_processing.jl")
-key = "head"
+key = "tail"
 method_name = "LDR"
 path = joinpath(@__DIR__, "Data", key, method_name)
 

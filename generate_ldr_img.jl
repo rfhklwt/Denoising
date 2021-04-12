@@ -14,7 +14,7 @@ include("data_compute.jl")
 @info Dates.now()
 # load hologram with eltype Float64
 PATH = joinpath(@__DIR__, "hologram")
-holo_name = "head.bmp"
+holo_name = "tail.bmp"
 holo = load_image(PATH, holo_name)
 Nx, Ny = size(holo)
 scale = 4000000
@@ -31,7 +31,7 @@ key = holo_name[1: 4]
 # N = 4
 
 
-for N in [2]
+for N in [2, 4]
     # Store de-noising image with (S, dx, dy). 
     denoised_imgs = []
     denoised_imgs_zoom = []
@@ -55,7 +55,8 @@ for N in [2]
         @info Dates.now()
         tensor = make_sub_holo(holo, Dx, Dy, dx, dy; dims_shrink=true)
         
-        @inbounds for k in 1: size(tensor, 3)
+        @inbounds Threads.@threads for ind in CartesianIndices(1: size(tensor, 3))
+            k = ind.I[1]
             tensor[:, :, k] = reconst(tensor[:, :, k], sub_P, scale ÷ N^2; shift=true)
         end
 

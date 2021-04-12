@@ -109,7 +109,7 @@ function LDR_aggregation(img_tensor::AbstractArray, N::Integer)
     @inbounds Threads.@threads for ind in CartesianIndices((1: N, 1: N))
     #@inbounds for i in 1: N, j in 1: N
         i, j = ind.I
-        denoised_img[i: N: end, j: N: end] .= @view img_tensor[:, :, i + j - 1]
+        denoised_img[i: N: end, j: N: end] .= @view img_tensor[:, :, N*(i - 1) + j]
     end
 
     return denoised_img

@@ -17,7 +17,7 @@ PATH = joinpath(@__DIR__, "hologram")
 holo_name = "tail.bmp"
 holo = load_image(PATH, holo_name)
 Nx, Ny = size(holo)
-scale = 4000000
+scale = 1500
 P = plan_fft(holo)
 re_img = reconst(holo, P, scale; shift=true)
 
